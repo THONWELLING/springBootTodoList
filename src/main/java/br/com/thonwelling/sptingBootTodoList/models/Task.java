@@ -15,7 +15,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Setter
 @Table(name = "todos")
-public class Todo {
+public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID uuid;
@@ -27,8 +27,8 @@ public class Todo {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Todo todo)) return false;
-        return isDone() == todo.isDone() && getPriority() == todo.getPriority() && Objects.equals(getUuid(), todo.getUuid()) && Objects.equals(getName(), todo.getName()) && Objects.equals(getDescription(), todo.getDescription());
+        if (!(o instanceof Task task)) return false;
+        return isDone() == task.isDone() && getPriority() == task.getPriority() && Objects.equals(getUuid(), task.getUuid()) && Objects.equals(getName(), task.getName()) && Objects.equals(getDescription(), task.getDescription());
     }
 
     @Override
