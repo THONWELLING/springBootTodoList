@@ -11,10 +11,11 @@
 	<groupId>br.com.thonwelling</groupId>
 	<artifactId>sptingBootTodoList</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sptingBootTodoList</name>
+	<name>springBootTodoList</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
+		<mapper.version>3.1.1</mapper.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -25,7 +26,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.modelmapper.extensions</groupId>
+			<artifactId>modelmapper-spring</artifactId>
+			<version>${mapper.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -57,7 +62,7 @@
 				<configuration>
 					<excludes>
 						<exclude>
-							<groupId>org.projectlombok</groupId>
+							<groupId>org.project-lombok</groupId>
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>

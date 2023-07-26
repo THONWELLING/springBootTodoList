@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -14,11 +15,11 @@ import java.util.UUID;
 @Getter
 @NoArgsConstructor
 @Setter
-@Table(name = "todos")
-public class Task {
+@Table(name = "tasks")
+public class Task implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID uuid;
+    private UUID id;
     private String name;
     private String description;
     private boolean done;
@@ -28,11 +29,11 @@ public class Task {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Task task)) return false;
-        return isDone() == task.isDone() && getPriority() == task.getPriority() && Objects.equals(getUuid(), task.getUuid()) && Objects.equals(getName(), task.getName()) && Objects.equals(getDescription(), task.getDescription());
+        return isDone() == task.isDone() && getPriority() == task.getPriority() && Objects.equals(getId(), task.getId()) && Objects.equals(getName(), task.getName()) && Objects.equals(getDescription(), task.getDescription());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getUuid(), getName(), getDescription(), isDone(), getPriority());
+        return Objects.hash(getId(), getName(), getDescription(), isDone(), getPriority());
     }
 }
